@@ -7,7 +7,7 @@ from translate_client import translate
 app = FastAPI()
 
 
-@app.get("/{source_lang}/lookup/{target_lang}/{word}", response_model=WordModel)
+@app.get("/lookup/{source_lang}/{target_lang}/{word}", response_model=WordModel)
 async def lookup(source_lang: str, target_lang: str, word: str):
     firestore_client = FirestoreClient(language=source_lang)
     query = firestore_client.query_by_name(word=word)
