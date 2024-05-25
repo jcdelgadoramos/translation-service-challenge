@@ -1,14 +1,12 @@
-from google.cloud.translate_v2.client import Client
+from google.cloud.translate_v2.client import Client as TranslateClient
 
-from models import Word
+from models import WordModel
 
 
-def translate(word: str, source_lang: str, target_lang: str) -> Word:
-    # NoSQL logic for translation
+def translate(word: str, source_lang: str, target_lang: str) -> WordModel:
+    gt_client = TranslateClient()
+    translated_text = gt_client.translate(word, target_language=target_lang, source_language=source_lang)
+    word_instance = WordModel(name=word, language=source_lang)
+    word_instance.translations[target_lang] = translated_text["translatedText"]
 
-    client = Client()
-    translated_text = client.translate(word, target_language=target_lang, source_language=source_lang)
-    word = Word(name=word, language=source_lang)
-    word.translations[target_lang] = translated_text["translatedText"]
-
-    return word
+    return word_instance

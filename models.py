@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class Word(BaseModel):
+class WordModel(BaseModel):
     name: str
     language: str
     definitions: list[str] = []
