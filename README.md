@@ -12,10 +12,11 @@ The goal is to create a microservice providing a JSON API to work with word defi
  - Detail endpoint (as `/lookup/{source_lang}/{target_lang}/{word}` returning translations.
  - List endpoint (as `/list/{language}/?word=str&limit=10&page=1&desc=true` supporting pagination (`page` param, default = 1), sorting (`desc` param, default = true),  and filtering (`word` param). Added `limit` param.
  - Deletion endpoint (as `/delete/{language}/{word}/`). 
+ - Dockerfile
 
 ## Pending tasks
 
- - Docker setup
+ - docker-compose setup
  - Definitions, synonyms and example management. Requires targeting a different Google Cloud Translate client (currently working with v2)
 
 ## Wishlist
