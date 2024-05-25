@@ -30,7 +30,7 @@ async def lookup(source_lang: str, target_lang: str, word: str):
     return new_lang_word_instance
 
 @app.get("/list/{language}/", response_model=list[WordModel])
-async def list(language: str, word: str, limit: int | None = 10, page: int | None = 1, desc: bool | None = True) -> list[WordModel]:
+async def list(language: str, word: str | None = "", limit: int | None = 10, page: int | None = 1, desc: bool | None = True) -> list[WordModel]:
     firestore_client = FirestoreClient(language=language)
     query = firestore_client.query_filter(word, limit, page, desc)
 
