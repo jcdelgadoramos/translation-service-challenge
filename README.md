@@ -18,7 +18,7 @@ The goal is to create a microservice providing a JSON API to work with word defi
 ## Wishlist
 
  - ~~Not restricted to a single source/target language~~ (done)
- - Unit tests
+ - ~~Unit tests~~ (done)
  - Firebase database name should be added as a configuration tool
  - GCP deployment
 
@@ -28,4 +28,8 @@ The goal is to create a microservice providing a JSON API to work with word defi
  2. A JSON key must be generated for the Service Account that will be used. This key should be stored inside the project folder as `credentials.json`. File `credentials.sample.json` shows the structure that the file should have.
  3. A native mode Firebase database named as `translation-service-challenge-db` should be created.
  4. Run `docker-compose ps`. Docker and Docker Compose should be available.
- 5. Project should be available at [localhost](http://127.0.0.1:8000)
+ 5. Project should be available at [localhost](http://127.0.0.1:8000). All endpoints except the deletion one are common GET operations, while the latter is a DELETE one.
+
+ ## Unit tests
+
+ Execute with `python -m unittest`
